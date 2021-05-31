@@ -9,6 +9,7 @@ class StudentController(object):
         self._student_controller.add_student(student)
 
     def remove_student(self, student):
+        # de facut update sa fie ca in repo
         self._student_controller.remove_student(student)
 
     def update_student(self, sid):
