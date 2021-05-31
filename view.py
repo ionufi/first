@@ -9,6 +9,7 @@ class StudentView(object):
         self._student_view.add_student(student)
 
     def remove_student(self, sid):
+        # de facut update ca in repo
         self._student_view.remove_student(sid)
 
     def update_student(self, sid):
@@ -22,11 +23,11 @@ class StudentView(object):
 
     def print_menu(self):
         menu = ""
-        menu += "1: Add students\n"
-        menu += "2: Remove students\n"
+        menu += "1: Add student\n"
+        menu += "2: Remove student\n"
         menu += "3: Update student\n"
         menu += "4: Get student\n"
-        menu += "5: Get all students\n"
+        menu += "5: Get all student\n"
         menu += "0: Exit aplication\n"
         return menu
 
@@ -45,13 +46,16 @@ class StudentView(object):
 
             if option == 2:
                 delete_id = input("Type the ID student you want to delete: ")
+                # nu ii bine cum te-ai gandit
                 id_cont = Student([int(delete_id)], [], [], [])
 #                index = self.get_all_students().index('2')
 
+                # nu asa se face
                 if int(delete_id) == id_cont:
                     self.remove_student(Student([int(delete_id)], [], [], []))
                 else:
                     print("This ID do not exist!")
+                    # de ce printezi? exista try catch pentru erori de genu
 #                    print(id_cont)
 #                    print(index)
 
