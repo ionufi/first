@@ -10,8 +10,9 @@ class StudentRepository(object):
         self._students.append(student)
 
     def remove_student(self, sid):
-        # de facut update la sid in lista de obiecte de fiecare data sa fie crescator uniform
         self._students.pop(sid)
+        for i in range(sid, len(self._students)):
+            self._students[i].set_id(i - 1)
 
     def update_student(self, sid, name, surname, grade):
         self._students[sid].set_name(name)

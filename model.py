@@ -26,7 +26,7 @@ class Student(object):
     def get_grade(self):
         return self._grade
 
-    def set_grad(self, grade):
+    def set_grade(self, grade):
         self._grade = grade
 
     def __repr__(self):

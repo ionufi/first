@@ -10,13 +10,13 @@ class StudentView(object):
 
     def remove_student(self, sid):
         # de facut update ca in repo
-        self._student_view.remove_student(sid)
+        return self._student_view.remove_student(sid)
 
-    def update_student(self, sid):
-        self._student_view.update_student(sid)
+    def update_student(self, sid, name, surname, grade):
+        return self._student_view.update_student(sid, name, surname, grade)
 
     def get_student(self, sid):
-        self._student_view.get_student(sid)
+        return self._student_view.get_student(sid)
 
     def get_all_students(self):
         return self._student_view.get_all_students()
@@ -43,25 +43,20 @@ class StudentView(object):
                 grade = int(input("Type the grade:"))
                 student = Student(sid=sid, name=name, surname=surname, grade=grade)
                 self.add_student(student)
-
             if option == 2:
-                delete_id = input("Type the ID student you want to delete: ")
-                # nu ii bine cum te-ai gandit
-                id_cont = Student([int(delete_id)], [], [], [])
-#                index = self.get_all_students().index('2')
-
-                # nu asa se face
-                if int(delete_id) == id_cont:
-                    self.remove_student(Student([int(delete_id)], [], [], []))
-                else:
-                    print("This ID do not exist!")
-                    # de ce printezi? exista try catch pentru erori de genu
-#                    print(id_cont)
-#                    print(index)
-
+                sid = int(input("Give id:"))
+                self.remove_student(sid)
+            if option == 3:
+                sid = int(input("Give an id: "))
+                name = input("Type the name:")
+                surname = input("Type the surname:")
+                grade = int(input("Type the grade:"))
+                self.update_student(sid, name, surname, grade)
+            if option == 4:
+                sid = int(input("Give id:"))
+                print(self.get_student(sid))
             if option == 5:
                 print(self.get_all_students())
-
             if option == 0:
                 break
             print(self.print_menu())
